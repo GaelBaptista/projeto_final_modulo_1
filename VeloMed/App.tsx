@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SplashScreen } from "./src/Screens/SplashScreen";
@@ -12,8 +12,9 @@ import { CadastroMovimentacao } from "./src/Screens/Filial/CadastroMovimentacoes
 import { ListagemMovimentacoes } from "./src/Screens/Filial/ListagemMovimentacao";
 import { ListagemMovimentacoesMotorista } from "./src/Screens/Motorista/Motorista";
 import { NovoUsuario } from "./src/Screens/Adm/NovoUsuario";
+import { RootStackParamList } from "./types"; // Import the types
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>(); // Apply the types here
 
 export default function App() {
   return (
