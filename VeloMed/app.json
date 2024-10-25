@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MedMov",
-    "slug": "MedMov",
+    "name": "VeloMed",
+    "slug": "VeloMed",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
