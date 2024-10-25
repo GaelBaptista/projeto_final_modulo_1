@@ -8,11 +8,12 @@ import { StatusBar } from "react-native";
 import { Home } from "./src/Screens/Adm/Home";
 import { Estoque } from "./src/Screens/Adm/Estoque";
 import { Usuarios } from "./src/Screens/Adm/Usuarios";
-import { CadastroMovimentacao } from "./src/Screens/Filial/CadastroMovimentacoes";
+
 import { ListagemMovimentacoes } from "./src/Screens/Filial/ListagemMovimentacao";
 import { ListagemMovimentacoesMotorista } from "./src/Screens/Motorista/Motorista";
 import { NovoUsuario } from "./src/Screens/Adm/NovoUsuario";
 import { RootStackParamList } from "./types"; // Import the types
+import CadastroMovimentacao from "./src/Screens/Filial/CadastroMovimentacoes";
 
 const Stack = createStackNavigator<RootStackParamList>(); // Apply the types here
 
