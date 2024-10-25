@@ -3,8 +3,10 @@ export type RootStackParamList = {
   Intro: undefined;
   Login: undefined;
   Home: undefined;
-  Estoque: undefined; // Pode adicionar mais rotas aqui conforme necessário
+  Estoque: undefined;
   Usuarios: undefined;
-  Profile: undefined; // Pode adicionar mais rotas aqui conforme necessário
-  // Pode adicionar mais rotas aqui conforme necessário
+  NovoUsuario: undefined;
+  CadastroMovimentacao: undefined;
+  ListagemMovimentacao: undefined;
+  Motorista: undefined;
 };
