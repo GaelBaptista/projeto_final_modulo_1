@@ -9,4 +9,5 @@ export type RootStackParamList = {
   CadastroMovimentacao: undefined;
   ListagemMovimentacao: undefined;
   Motorista: undefined;
+  MapScreen: undefined;
 };

@@ -14,6 +14,7 @@ import { ListagemMovimentacoesMotorista } from "./src/Screens/Motorista/Motorist
 import { NovoUsuario } from "./src/Screens/Adm/NovoUsuario";
 import { RootStackParamList } from "./types";
 import CadastroMovimentacao from "./src/Screens/Filial/CadastroMovimentacoes";
+import { Map } from "./src/Screens/Motorista/MapScreen";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -74,6 +75,11 @@ export default function App() {
         <Stack.Screen
           name="Motorista"
           component={ListagemMovimentacoesMotorista}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MapScreen"
+          component={Map}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
