@@ -16,7 +16,7 @@ import {
   useFocusEffect,
 } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import HeaderComponent from "../../components/Header";
+import { TopBar } from "../../components/Header";
 
 // Define the User type
 interface User {
@@ -81,12 +81,12 @@ export function Usuarios() {
 
   return (
     <View style={styles.container}>
-      <HeaderComponent />
+      <TopBar />
       <TouchableOpacity
         style={styles.newUserButton}
         onPress={redirectToNewUser}
       >
-        <Text style={styles.newUserButtonText}>New User</Text>
+        <Text style={styles.newUserButtonText}>Cadastrar Novo Usuário</Text>
       </TouchableOpacity>
 
       {users.length === 0 ? (

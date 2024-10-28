@@ -7,20 +7,20 @@ import {
   NavigationProp,
 } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HeaderComponent from "../../components/Header";
-import { RootStackParamList } from "../../../types"; // Certifique-se de que o caminho está correto
+
+import { RootStackParamList } from "../../../types";
+import { TopBar } from "../../components/Header";
 
 export function Home() {
-  const [userProfile, setUserProfile] = useState<any>(null); // Estado para o perfil do usuário
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>(); // Tipagem correta do navigation
+  const [userProfile, setUserProfile] = useState<any>(null);
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
-  // Carregar o perfil do usuário a partir do AsyncStorage
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
         const savedUser = await AsyncStorage.getItem("userProfile");
         if (savedUser) {
-          setUserProfile(JSON.parse(savedUser)); // Atualiza o estado com o perfil do usuário
+          setUserProfile(JSON.parse(savedUser));
         }
       } catch (error) {
         console.log("Erro ao carregar o perfil do usuário:", error);
@@ -32,25 +32,21 @@ export function Home() {
 
   return (
     <>
-      <HeaderComponent />
-
       <SafeAreaView style={styles.container}>
+        <TopBar />
         <View>
-          {/* Header da tela de perfil */}
           <View style={styles.header}>
             <Image
-              source={require("../../../assets/medLogo.jpg")} // Imagem do perfil
+              source={require("../../../assets/medLogo.jpg")}
               style={styles.profileImage}
             />
 
             <Text style={styles.userName}>
-              {/* Exibe o nome do usuário carregado do AsyncStorage */}
-              Olá, {userProfile ? userProfile.name : "Usuário"}{" "}
-              {/* Mostra o nome do usuário */}
+              Olá, {userProfile ? userProfile.name : "Usuário"}
             </Text>
+            <Text style={styles.userRole}>Gerencie seu Negócio!</Text>
           </View>
 
-          {/* Seção dos dois botões lado a lado */}
           <View style={styles.buttonsRow}>
             <TouchableOpacity
               style={styles.navigationButton}

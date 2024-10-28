@@ -11,7 +11,7 @@ import { Picker } from "@react-native-picker/picker";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CommonActions, useNavigation } from "@react-navigation/native";
-import HeaderComponent from "../../components/Header";
+import { TopBar } from "../../components/Header";
 
 interface Filial {
   id: string;
@@ -149,7 +149,7 @@ export default function CadastroMovimentacao() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderComponent />
+      <TopBar />
       <Text style={styles.label}>
         {filialDestino === filialOrigem
           ? "As filiais estão iguais"

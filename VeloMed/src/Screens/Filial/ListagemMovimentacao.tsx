@@ -13,7 +13,7 @@ import {
   useIsFocused,
   CommonActions,
 } from "@react-navigation/native";
-import HeaderComponent from "../../components/Header";
+import { TopBar } from "../../components/Header";
 
 interface Movimentacao {
   id: string;
@@ -86,7 +86,7 @@ export function ListagemMovimentacoes() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderComponent />
+      <TopBar />
 
       <TouchableOpacity
         style={styles.addButton}
