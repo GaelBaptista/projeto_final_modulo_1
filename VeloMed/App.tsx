@@ -12,10 +12,10 @@ import { Usuarios } from "./src/Screens/Adm/Usuarios";
 import { ListagemMovimentacoes } from "./src/Screens/Filial/ListagemMovimentacao";
 import { ListagemMovimentacoesMotorista } from "./src/Screens/Motorista/Motorista";
 import { NovoUsuario } from "./src/Screens/Adm/NovoUsuario";
-import { RootStackParamList } from "./types"; // Import the types
+import { RootStackParamList } from "./types";
 import CadastroMovimentacao from "./src/Screens/Filial/CadastroMovimentacoes";
 
-const Stack = createStackNavigator<RootStackParamList>(); // Apply the types here
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
@@ -25,7 +25,7 @@ export default function App() {
         translucent
         backgroundColor="#00C2FF"
       />
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           name="Splash"
           component={SplashScreen}

@@ -10,10 +10,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import axios from "axios";
+import { TopBar } from "../../components/Header";
 
 interface Product {
   id: string;
-  product_name?: string; // Atualizar para 'product_name'
+  product_name?: string;
   branch_name?: string;
   quantity: number;
   image_url: string;
@@ -25,25 +26,23 @@ export function Estoque() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Carregar produtos ao inicializar a tela
   useEffect(() => {
     axios
       .get(process.env.EXPO_PUBLIC_API_URL + "/products")
       .then((response) => {
         setProducts(response.data);
-        setFilteredProducts(response.data); // Inicialmente, exibir todos os produtos
+        setFilteredProducts(response.data);
       })
       .catch(() => console.log("Erro ao carregar produtos"));
   }, []);
 
-  // Função para filtrar os produtos com base no termo de busca
   const handleSearch = () => {
     const term = searchTerm.toLowerCase();
 
     const filtered = products.filter((product) => {
       const productName = product.product_name
         ? product.product_name.toLowerCase()
-        : ""; // Usando 'product_name'
+        : "";
       const branchName = product.branch_name
         ? product.branch_name.toLowerCase()
         : "";
@@ -51,27 +50,24 @@ export function Estoque() {
       return productName.includes(term) || branchName.includes(term);
     });
 
-    setFilteredProducts(filtered); // Atualiza a lista filtrada
+    setFilteredProducts(filtered);
   };
 
-  // Renderizar cada item do FlatList
   const renderItem = ({ item }: { item: Product }) => (
     <View style={styles.productContainer}>
-      {/* Exibe a imagem do produto */}
       <Image source={{ uri: item.image_url }} style={styles.productImage} />
       <View style={styles.productDetails}>
-        {/* Exibe o nome do produto */}
         <Text style={styles.productName}>
           {item.product_name || "Produto sem nome"}
         </Text>
-        {/* Exibe o nome da filial */}
+
         <View style={styles.productRow}>
           <Text style={styles.productBranch}>
             Filial: {item.branch_name || "Sem filial"}
           </Text>
           <Text style={styles.productQuantity}>{item.quantity} Unidades</Text>
         </View>
-        {/* Exibe a descrição do produto */}
+
         <Text numberOfLines={2} style={styles.productDescription}>
           {item.description || "Sem descrição disponível"}
         </Text>
@@ -81,8 +77,9 @@ export function Estoque() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TopBar />
       <Text style={styles.label}>Buscar produtos por nome ou filial</Text>
-      {/* Campo de entrada para busca */}
+
       <TextInput
         style={styles.input}
         value={searchTerm}
@@ -90,16 +87,15 @@ export function Estoque() {
         placeholder="Digite o nome do produto ou filial"
         placeholderTextColor="#6b7280"
       />
-      {/* Botão para buscar */}
+
       <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
         <Text style={styles.buttonText}>Buscar</Text>
       </TouchableOpacity>
 
-      {/* Lista de produtos exibidos */}
       <FlatList
-        data={filteredProducts} // Lista de produtos filtrados
+        data={filteredProducts}
         keyExtractor={(item) => item.id}
-        renderItem={renderItem} // Função para renderizar cada produto
+        renderItem={renderItem}
         style={styles.productList}
       />
     </SafeAreaView>
@@ -111,6 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#0f172a",
     padding: 20,
+    marginTop: 30,
   },
   input: {
     backgroundColor: "#1e293b",

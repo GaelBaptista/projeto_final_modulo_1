@@ -14,7 +14,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { CommonActions } from "@react-navigation/native";
-import HeaderComponent from "../../components/Header";
+import { TopBar } from "../../components/Header";
 
 export function NovoUsuario() {
   const [profile, setProfile] = useState("motorista");
@@ -94,8 +94,8 @@ export function NovoUsuario() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <TopBar />
       <View style={styles.containerOptions}>
-        <HeaderComponent />
         <TouchableOpacity
           style={[
             styles.optionProfile,
