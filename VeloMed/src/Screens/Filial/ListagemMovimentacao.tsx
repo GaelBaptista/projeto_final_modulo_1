@@ -19,19 +19,18 @@ interface Movimentacao {
   id: string;
   origem: { nome: string };
   destino: { nome: string };
-  produto: { nome: string; unidade: string }; // Incluindo a unidade do produto
+  produto: { nome: string; unidade: string };
   quantity: number;
   status: string;
 }
 
 export function ListagemMovimentacoes() {
   const [movements, setMovements] = useState<Movimentacao[]>([]);
-  const [loading, setLoading] = useState(true); // Para exibir indicador de carregamento
-  const [error, setError] = useState<string | null>(null); // Para exibir erro caso ocorra
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const navigation = useNavigation();
   const isFocused = useIsFocused();
 
-  // Função para buscar movimentações
   useEffect(() => {
     const fetchMovements = async () => {
       try {
@@ -39,12 +38,12 @@ export function ListagemMovimentacoes() {
           process.env.EXPO_PUBLIC_API_URL + "/movements"
         );
         setMovements(response.data);
-        setError(null); // Limpa qualquer erro anterior
+        setError(null);
       } catch (err) {
         console.error("Erro ao carregar movimentações:", err);
         setError("Erro ao carregar as movimentações.");
       } finally {
-        setLoading(false); // Para o indicador de carregamento
+        setLoading(false);
       }
     };
 
@@ -53,7 +52,6 @@ export function ListagemMovimentacoes() {
     }
   }, [isFocused]);
 
-  // Função para renderizar cada movimentação
   const renderItem = ({ item }: { item: Movimentacao }) => (
     <View style={styles.card}>
       <Text style={styles.cardText}>

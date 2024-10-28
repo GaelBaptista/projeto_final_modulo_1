@@ -51,12 +51,11 @@ export default function CadastroMovimentacao() {
     setFilialDestino(value);
   }
 
-  // Função para carregar as opções de filiais e produtos ao carregar a tela
   useEffect(() => {
     axios
       .get(process.env.EXPO_PUBLIC_API_URL + "/branches/options")
       .then((response) => {
-        console.log("Filiais recebidas:", response.data); // Log para verificação
+        console.log("Filiais recebidas:", response.data);
         setFilialOptions(response.data);
       })
       .catch((error) => {
@@ -66,7 +65,7 @@ export default function CadastroMovimentacao() {
     axios
       .get(process.env.EXPO_PUBLIC_API_URL + "/products/options")
       .then((response) => {
-        console.log("Produtos recebidos:", response.data); // Log para verificação
+        console.log("Produtos recebidos:", response.data);
         setProdutosOptions(response.data);
       })
       .catch((error) => {
@@ -74,7 +73,6 @@ export default function CadastroMovimentacao() {
       });
   }, []);
 
-  // Atualiza as opções de produtos com base na filial de origem selecionada
   useEffect(() => {
     if (filialOrigem) {
       const produtosFiltrados = produtosOptions.filter(
@@ -84,7 +82,6 @@ export default function CadastroMovimentacao() {
     }
   }, [filialOrigem, produtosOptions]);
 
-  // Verificação da quantidade selecionada em relação ao estoque disponível
   useEffect(() => {
     if (quantidade && produtoSelecionado) {
       const produtoEncontrado = produtosOptions.find(
@@ -101,7 +98,6 @@ export default function CadastroMovimentacao() {
     }
   }, [quantidade, produtoSelecionado]);
 
-  // Função para enviar os dados da movimentação para o backend
   const handleCadastro = () => {
     if (filialOrigem === filialDestino) {
       Alert.alert(

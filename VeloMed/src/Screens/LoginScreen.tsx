@@ -9,14 +9,14 @@ import {
   Alert,
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../types";
+import { ParamListNavigato } from "../../types";
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import axios from "axios";
 import { CommonActions } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type LoginScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
+  ParamListNavigato,
   "Login"
 >;
 
