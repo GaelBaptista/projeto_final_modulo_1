@@ -8,7 +8,7 @@ import {
   Switch,
   TouchableOpacity,
   Animated,
-  Alert, // Added the missing import
+  Alert,
 } from "react-native";
 import {
   CommonActions,
@@ -18,7 +18,6 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TopBar } from "../../components/Header";
 
-// Define the User type
 interface User {
   id: number;
   name: string;

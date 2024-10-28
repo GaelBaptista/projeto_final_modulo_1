@@ -1,4 +1,4 @@
-export type RootStackParamList = {
+export type ParamListNavigato = {
   Splash: undefined;
   Intro: undefined;
   Login: undefined;

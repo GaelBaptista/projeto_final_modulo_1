@@ -8,12 +8,12 @@ import {
 } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { RootStackParamList } from "../../../types";
+import { ParamListNavigato } from "../../../types";
 import { TopBar } from "../../components/Header";
 
 export function Home() {
   const [userProfile, setUserProfile] = useState<any>(null);
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation<NavigationProp<ParamListNavigato>>();
 
   useEffect(() => {
     const fetchUserProfile = async () => {

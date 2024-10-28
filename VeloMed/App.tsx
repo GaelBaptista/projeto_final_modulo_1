@@ -12,11 +12,11 @@ import { Usuarios } from "./src/Screens/Adm/Usuarios";
 import { ListagemMovimentacoes } from "./src/Screens/Filial/ListagemMovimentacao";
 import { ListagemMovimentacoesMotorista } from "./src/Screens/Motorista/Motorista";
 import { NovoUsuario } from "./src/Screens/Adm/NovoUsuario";
-import { RootStackParamList } from "./types";
+import { ParamListNavigato } from "./types";
 import CadastroMovimentacao from "./src/Screens/Filial/CadastroMovimentacoes";
 import { Map } from "./src/Screens/Motorista/MapScreen";
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<ParamListNavigato>();
 
 export default function App() {
   return (

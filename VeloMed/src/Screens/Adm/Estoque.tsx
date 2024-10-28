@@ -92,6 +92,11 @@ export function Estoque() {
         <Text style={styles.buttonText}>Buscar</Text>
       </TouchableOpacity>
 
+      {/* Exibe a quantidade de produtos encontrados */}
+      <Text style={styles.resultCount}>
+        {filteredProducts.length} produtos encontrados
+      </Text>
+
       <FlatList
         data={filteredProducts}
         keyExtractor={(item) => item.id}
@@ -141,6 +146,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
+  resultCount: {
+    color: "#cbd5e1",
+    fontSize: 16,
+    marginBottom: 10,
+    textAlign: "center",
+  },
   productList: {
     marginTop: 20,
   },
@@ -154,10 +165,11 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.5,
     shadowRadius: 10,
+    alignItems: "center", // Alinha a imagem e os detalhes verticalmente
   },
   productImage: {
     width: 60,
-    height: 60,
+    height: 60, // Reduzido para um quadrado menor
     borderRadius: 10,
     marginRight: 15,
   },
